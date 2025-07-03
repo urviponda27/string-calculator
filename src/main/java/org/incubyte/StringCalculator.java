@@ -4,6 +4,9 @@ public class StringCalculator {
     public static final String EMPTY_STRING = "";
 
     public static String calculateSum(String input) {
-        return null; // Not implemented yet
+       if (input.equals(EMPTY_STRING)) {
+        return "0";
+     }
+        return input;
     }
 }
