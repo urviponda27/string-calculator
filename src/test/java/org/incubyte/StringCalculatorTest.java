@@ -7,5 +7,9 @@ public class StringCalculatorTest {
     public void emptyStringShouldReturnZero() {
         assertThat(StringCalculator.calculateSum("")).isEqualTo("0");
     } 
-   
+    @Test
+    public void singleStringShouldReturnItselfAsSum() {
+    assertThat(StringCalculator.calculateSum("5")).isEqualTo("5");
+}
+
 }
