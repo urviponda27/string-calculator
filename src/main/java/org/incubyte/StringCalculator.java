@@ -38,12 +38,18 @@ import java.util.stream.Collectors;
         // Replace all new lines with the chosen delimiter
         String normalized = numbers.replace(NEW_LINE, delimiter);
 
-        // Split the normalized string by the chosen delimiter,
-        // convert each number to an integer,
-        // and collect them into a list for further processing.
+         /*
+            Split the normalized string by the chosen delimiter,
+            convert each number to integer,
+            filter out numbers greater than 1000,
+            check for negatives,
+            sum remaining numbers.
+         */
         List<Integer> numberList = Arrays.stream(normalized.split(delimiter))
                 .map(Integer::parseInt)
+                .filter(n -> n <= 1000) // Ignore numbers > 1000
                 .collect(Collectors.toList());
+
 
         // Find all negative numbers in the list.
         List<Integer> negatives = numberList.stream()
