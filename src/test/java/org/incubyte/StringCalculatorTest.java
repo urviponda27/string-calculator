@@ -29,4 +29,8 @@ public class StringCalculatorTest {
         // This input has both \n and , as delimiters → should return 6
         assertThat(StringCalculator.add("1\n2,3")).isEqualTo(6);
     }
+    @Test
+    public void customSingleCharDelimiterShouldBeSupported() {
+        assertThat(StringCalculator.add("//;\n1;2")).isEqualTo(3);
+    }
 }
