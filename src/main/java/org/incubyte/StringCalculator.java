@@ -72,4 +72,5 @@ public class StringCalculator {
 
         return numberList.stream().mapToInt(Integer::intValue).sum();
     }
+    
 }
