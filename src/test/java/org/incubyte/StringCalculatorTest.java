@@ -43,4 +43,9 @@ public class StringCalculatorTest {
 
         assertThat(exception.getMessage()).isEqualTo("negatives not allowed: -2,-4");
     }
+     @Test
+    public void numbersGreaterThan1000ShouldBeIgnored() {
+        // 2 + 1001 → should return 2, since 1001 is ignored
+        assertThat(StringCalculator.add("2,1001")).isEqualTo(2);
+    }
 }
