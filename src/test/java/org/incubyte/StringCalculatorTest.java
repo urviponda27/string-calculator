@@ -48,4 +48,8 @@ public class StringCalculatorTest {
         // 2 + 1001 → should return 2, since 1001 is ignored
         assertThat(StringCalculator.add("2,1001")).isEqualTo(2);
     }
+     @Test
+    public void delimiterOfAnyLengthShouldBeSupported() {
+        assertThat(StringCalculator.add("//[***]\n1***2***3")).isEqualTo(6);
+    }
 }
