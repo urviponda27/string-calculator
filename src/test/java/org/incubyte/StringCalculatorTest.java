@@ -19,5 +19,10 @@ public class StringCalculatorTest {
         assertThat(StringCalculator.calculateSum("1,2,3")).isEqualTo("6");
 
     }
+    @Test
+    public void numbersInAnyNumberofInputStringsShouldBeAdded()
+    {
+        assertThat(StringCalculator.calculateSum("1", "1,2,3", "")).isEqualTo("7");
+    }
 
 }

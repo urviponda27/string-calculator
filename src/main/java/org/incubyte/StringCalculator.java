@@ -4,6 +4,11 @@ public class StringCalculator {
     public static final String COMMA = ",";
     public static final String EMPTY_STRING = "";
 
+    //Calculate the sum of numbers from one or more input strings.
+    public static String calculateSum(String... input)
+    {
+        return null;
+    }
     public static String calculateSum(String input) {
        if (input.equals(EMPTY_STRING)) {
         return "0";
