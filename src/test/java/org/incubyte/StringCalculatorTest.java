@@ -24,4 +24,9 @@ public class StringCalculatorTest {
     public void multipleNumbersInOneInputStringShouldBeAdded() {
         assertThat(StringCalculator.add("1,1,2,3")).isEqualTo(7);
     }
+    @Test
+    public void shouldHandleNewLinesBetweenNumbers() {
+        // This input has both \n and , as delimiters → should return 6
+        assertThat(StringCalculator.add("1\n2,3")).isEqualTo(6);
+    }
 }
