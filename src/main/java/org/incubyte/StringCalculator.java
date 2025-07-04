@@ -1,26 +1,26 @@
 package org.incubyte;
 
+import java.util.Arrays;
+
 public class StringCalculator {
     public static final String COMMA = ",";
     public static final String EMPTY_STRING = "";
 
-    //Calculate the sum of numbers from one or more input strings.
-    public static String calculateSum(String... input)
-    {
-        return null;
-    }
-    public static String calculateSum(String input) {
-       if (input.equals(EMPTY_STRING)) {
-        return "0";
-     }
-        return addAllNumbers(input.split(COMMA));
-    }
-     // Add all numbers in the given string array and return the sum as a string.
-    private static String addAllNumbers(String[] numbers) {
-        int sum = 0;
-        for (String numberString : numbers) {
-            sum = sum + Integer.valueOf(numberString);
+    /*
+      This method takes a string of numbers separated by commas and returns their sum.
+      If the input string is empty, it returns 0.
+     */
+    public static int add(String input) {
+        if (input.equals(EMPTY_STRING)) {
+            return 0;
         }
-        return String.valueOf(sum);
+
+        /*
+          Split the input string by comma, convert each part to an integer,
+          and sum up all the integers using Java Streams.
+         */
+        return Arrays.stream(input.split(COMMA))
+                .mapToInt(Integer::parseInt)
+                .sum();
     }
 }
