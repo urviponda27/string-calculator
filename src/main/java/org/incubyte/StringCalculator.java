@@ -1,15 +1,18 @@
 package org.incubyte;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
-/**
- * StringCalculator provides a method to add numbers in a string.
- * It supports custom delimiters, new lines, and commas as default delimiters.
- */
-public class StringCalculator {
-    public static final String COMMA = ",";
-    public static final String NEW_LINE = "\n";
-    public static final String EMPTY_STRING = "";
+    /*
+       Adds numbers from the input string.
+       Supports default delimiter (comma), new lines, and custom single-character delimiters.
+       Throws exception if any negative numbers are found.
+   */
+    public class StringCalculator {
+        public static final String COMMA = ",";
+        public static final String NEW_LINE = "\n";
+        public static final String EMPTY_STRING = "";
 
     /*
         Adds numbers from the input string.
@@ -35,13 +38,28 @@ public class StringCalculator {
         // Replace all new lines with the chosen delimiter
         String normalized = numbers.replace(NEW_LINE, delimiter);
 
-        /*
-            Split the normalized string by the chosen delimiter,
-            convert each part to an integer,
-            and sum up all integers using streams.
-        */
-        return Arrays.stream(normalized.split(delimiter))
-                .mapToInt(Integer::parseInt)
-                .sum();
+        // Split the normalized string by the chosen delimiter,
+        // convert each number to an integer,
+        // and collect them into a list for further processing.
+        List<Integer> numberList = Arrays.stream(normalized.split(delimiter))
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
+
+        // Find all negative numbers in the list.
+        List<Integer> negatives = numberList.stream()
+                .filter(n -> n < 0)
+                .collect(Collectors.toList());
+
+        // If any negative numbers are found, throw an exception listing them.
+        if (!negatives.isEmpty()) {
+            String negativesString = negatives.stream()
+                    .map(String::valueOf)
+                    .collect(Collectors.joining(","));
+            throw new IllegalArgumentException("negatives not allowed: " + negativesString);
+        }
+
+        // If no negatives, sum up all numbers and return the total.
+        return numberList.stream().mapToInt(Integer::intValue).sum();
+
     }
 }
