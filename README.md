@@ -28,6 +28,18 @@ This project implements the classic *String Calculator Kata* using *Test-Driven 
 
 ---
 
+## ⚙️ Tech Stack
+
+This project uses the following tools and technologies:
+
+- **Java 8+** — Core language features with use of **Stream API** and modern Java patterns
+- **JUnit 5** — Modern unit testing framework with annotations and lifecycle support
+- **AssertJ** — Fluent assertion library for readable and expressive test validations
+- **Maven** — Build automation and dependency management tool
+- **IntelliJ IDEA** — Recommended IDE for seamless Maven + Java development
+
+---
+
 ## 🧪 Test-Driven Development Strategy
 
 Each functionality is developed in **two TDD steps**:
